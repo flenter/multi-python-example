@@ -16,8 +16,7 @@ build:
     # run pip install with caching enabled.
     - script:
         name: pip install
-        echo: |
-          python -v
+        code: |
           pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
 
     # run your tests here... I only echo some info
@@ -42,8 +41,7 @@ build:
 
     - script:
         name: pip install
-        echo: |
-          python -v
+        code: |
           pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
 
     # A custom script step, name value is used in the UI
