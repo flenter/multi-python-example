@@ -2,12 +2,39 @@ box: flenter/multi-python
 build:
   # The steps that will be executed on build
   steps:
-    # A step that executes `pip install` command
+
+    # Create a virtual environment, now we only use 2.7.5 (not ubuntu's own
+    # python).
     - script:
-        name: setup virtualenv
+        name: setup/activate virtualenv using 2.7.5
         code: |
             virtualenv -p /usr/local/bin/python2 /tmp/venv27
             source /tmp/venv27/bin/activate
+
+    # run pip install with caching enabled.
+    - script:
+        name: pip install
+        echo: |
+          python -v
+          pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
+
+    # run your tests here... I only echo some info
+    - script:
+        name: echo python information 2.7
+        code: |
+          echo "python version $(python --version) running"
+          echo "pip version $(pip --version) running"
+
+    - script:
+        name: deactivate virtualenv
+        code: |
+            deactivate
+
+    - script:
+        name: setup/activate virtualenv using 3.3.2
+        code: |
+            virtualenv -p /usr/local/bin/python3 /tmp/venv33
+            source /tmp/venv33/bin/activate
 
     - script:
         name: pip install
@@ -18,7 +45,13 @@ build:
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
-        name: echo python information
+        name: echo python information 3.3.2
         code: |
           echo "python version $(python --version) running"
           echo "pip version $(pip --version) running"
+
+    - script:
+        name: deactivate virtualenv
+        code: |
+            deactivate
+
