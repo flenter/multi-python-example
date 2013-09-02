@@ -6,13 +6,14 @@ build:
     - script:
         name: setup virtualenv
         code: |
-            virtualenv -p /usr/local/bin/python27
+            virtualenv -p /usr/local/bin/python2 /tmp/venv27
+            source /tmp/venv27/bin/activate
 
     - script:
         name: pip install
         echo: |
           python -v
-          pip install -r requirements.txt
+          pip install --download-cache=$WERCKER_CACHE_DIR -r requirements.txt
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
