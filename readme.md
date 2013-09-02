@@ -1,5 +1,3 @@
-Example that contrary to what its title suggests, uses both python 2.7.5 and 3.3.2.
+Example for the multi-python box. Using both python 2.7.5 and 3.3.2 in one build (utilizing virtual environments).
 
-All done using the multi-python box on wercker.
-
-[![wercker status](https://app.wercker.com/status/e96404a5418957a4d50aa7bd4b5353e5/m "wercker status")](https://app.wercker.com/project/bykey/e96404a5418957a4d50aa7bd4b5353e5)
+[![wercker status](https://app.wercker.com/status/5f5618e8324f82ab97d93da8ff1823df/m "wercker status")](https://app.wercker.com/project/bykey/5f5618e8324f82ab97d93da8ff1823df)
