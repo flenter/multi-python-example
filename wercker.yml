@@ -3,12 +3,12 @@ build:
   # The steps that will be executed on build
   steps:
     # A step that executes `pip install` command
-    - scripts:
+    - script:
         name: setup virtualenv
         code: |
             virtualenv -p /usr/local/bin/python27
 
-    - scripts:
+    - script:
         name: pip install
         echo: |
           python -v
