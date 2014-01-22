@@ -37,9 +37,9 @@ build:
         code: |
             deactivate
 
-    # create a virtual environment for 3.3.2
+    # create a virtual environment for 3.3.3
     - script:
-        name: setup/activate virtualenv using 3.3.2
+        name: setup/activate virtualenv using 3.3.3
         code: |
             virtualenv -p /usr/local/bin/python3 /tmp/venv33
             source /tmp/venv33/bin/activate
@@ -52,7 +52,7 @@ build:
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
-        name: echo python information 3.3.2
+        name: echo python information 3.3.3
         code: |
           echo "python version $(python --version) running"
           echo "pip version $(pip --version) running"
