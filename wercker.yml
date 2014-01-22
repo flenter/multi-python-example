@@ -5,6 +5,11 @@ build:
 
     - install-packages:
         packages: libfreetype6-dev
+    - script:
+        name: install virtualenv
+        code: |
+          sudo pip install virtualenv
+          
     # Create a virtual environment, now we only use 2.7.5 (not ubuntu's own
     # python). And activate
     - script:
